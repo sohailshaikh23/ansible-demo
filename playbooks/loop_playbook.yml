@@ -1,0 +1,17 @@
+---
+# MY LOOPS PLAYBOOK
+
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Add list of users on my nodes
+      user:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - Bhupinder
+        - "Sachin tendulkar"  # Wrap in double quotes to handle spaces in usernames
+        - einstein
+        - "vasco d gama"      # Wrap in double quotes to handle spaces in usernames
