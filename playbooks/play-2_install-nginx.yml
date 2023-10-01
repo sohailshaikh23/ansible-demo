@@ -1,13 +1,13 @@
 -
- name: This playbook will install nginx
+ name: This playbook will install nginx and start it. 
  hosts: servers
  become: yes
  tasks:
-   - name: install nginx
+   - name: install nginx web server
      apt: 
        name: nginx
        state: latest
-   - name: start nginx
+   - name: start nginx service
      service:
        name: nginx
        state: started
